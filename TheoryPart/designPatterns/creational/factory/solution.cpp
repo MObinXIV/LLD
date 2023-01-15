@@ -55,6 +55,7 @@ int main()
 
     cin >> type;
 
+            // Client use a factory to create a product 
     Vehicle*v= vehicleFactory::getVehicle(type); // Get the benefit of static defintion
     v->createVehicle();
     
