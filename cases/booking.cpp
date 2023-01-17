@@ -29,6 +29,3 @@ private:
 };
 
 System *System:: sysInstance=nullptr;
-
-
-
