@@ -1,6 +1,6 @@
 # Open Closed Principle
 
-A software artifact should be **open for extension** but **closed for modification.**
+A software artifact should be **open for extension (inheritance , polymorphism ..etc)** but **closed for modification (don't modify or edit the class).**
 
 ---
 
@@ -24,10 +24,4 @@ engaged in a spectacular failure.
 
 The OCP is one of  the driving forces behind the architecture of  systems. The goal is to make the system easy to extend without incurring a high
 impact of  change. This goal is accomplished by partitioning the system into components, and arranging those components into a dependency hierarchy that protects higher-level components from changes in lower-level
-component
-
-
-
-
-- Hint
-if & Switches , not always think about it 
+component.
