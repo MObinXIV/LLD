@@ -1,7 +1,6 @@
 # Single Responsibility Principle
 
-Historically SRP has described -> A module should have one, and only one, reason to change.
-
+A module should deal with one and only one actor .
 ## Why 
 
 We Use it to keep the functiolities of our code consistent and don't violete each other by changing one thing related to one actor , don't affect other actors work.
