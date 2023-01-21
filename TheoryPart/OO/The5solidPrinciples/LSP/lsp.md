@@ -22,10 +22,16 @@ your code might work & serve the requirements , but conceptually wrong.
 
 The way area calculated is not the same in 2 classes , so we can't inherit square from rectangle. to solve that we make an public class called shape , both shape inherits from 
 
+
+
+## Sorting algorithms exmple
+
+As as an example, let's take a look at a class that is an abstraction of a department store. The base class may implement a naive searching algorithm that, in the worst case, iterates through the entire list of the items that the store sells. A subclass could override this method and provide a better search algorithm. Although the approach that the subclass takes to searching is different, the expected behavior and outcome is the same.
+
 ---
 
 ## how the principle breaks
 
 1. ask if the child class is really a type of parent class or really it's a parent class.
 2. replace the instances of child class with then instances in parent class and see if it's violates 
-
+**The Liskov Substitution Principle helps us determine if inheritance has been used correctly. If the expected behaviour between the subclass and the base class is different, then the principle has been violated.**
