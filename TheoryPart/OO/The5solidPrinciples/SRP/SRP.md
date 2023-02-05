@@ -4,7 +4,7 @@ A module should deal with one and only one actor .(the module change according t
 
 ## Why 
 
-We Use it to keep the functionalities of our code consistent and don't violet each other by changing one thing related to one actor , don't affect other actors work.
+We Use it to keep the functionalities of our code consistent and don't violet each other by changing one thing related to one actor , don't affect other actors work. keep things **cohesion** & easy to change.
 
 ## summary
 

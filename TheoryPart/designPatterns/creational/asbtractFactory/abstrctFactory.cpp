@@ -1,11 +1,9 @@
 /*
 - Factory -> create concrete classes or objects 
-- Abstract factory -> create factories that 's going to create objects , (Creates a family of classes)
+- Abstract factory -> create factories that 's going to create objects , (Creates a family of classes) , we add only level before factory
 */
 
-/*
-- client choose his os
-*/
+// Briefly ->we wanna create different types of the same thing 
 
 #include<iostream>
 

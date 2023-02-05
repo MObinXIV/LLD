@@ -28,3 +28,14 @@
 ## Hints
 
 Make Sure That objects and classes don't know a lot about each other , and the messages between classes can be reduced as much as possible 
+
+
+## Software Development process
+
+- Gathering requirements 
+- Use case diagram
+- class diagram
+- sequence diagram
+- state machine
+- activity diagram
+- code generation

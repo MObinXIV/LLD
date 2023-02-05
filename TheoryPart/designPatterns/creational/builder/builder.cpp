@@ -1,14 +1,9 @@
-// whenEver we build a very (complex object) which has a lot of (configurations) we use it 
-
-// We use it to decrease the constructor complexity, when we need to change part of the components , we don't need to set different constructors
-
-
 /*
 Pattern approach(from uml ):
 1- product -> this is the product we're going to build , as we see 
 2- builder -> abstract class which 'll be the interface for the functions which 'll be implemented using concerete class builder
-3- concerete builder -> Implement the functions in builder interface , work as the laptop type 
-4- director -> the person 'll generate desktop , used to 
+3- concrete builder -> Implement the functions in builder interface , work as the laptop type 
+4- director -> the person 'll generate desktop , used to and it may be the person so we may implement it in main 
 */
 
 #include<iostream>
@@ -16,6 +11,7 @@ Pattern approach(from uml ):
 using namespace std;
 
 // product class -> contains the components & set them  
+// Here it contains all the parts of the desktop
 class Desktop
 {
 
@@ -80,11 +76,13 @@ class Desktop
 
 
 // Builder which 'll implement the product class in details 
+
+// it's an interface which has all the building functionalities to our different products 
 class desktopBuilder
 {
 
     protected:
-    Desktop*desktop;
+        Desktop *desktop; // We need to use it in our concrete builders to so we set it as protected
 
     public:
 
@@ -108,6 +106,9 @@ class desktopBuilder
         virtual Desktop*getDesktop(){return desktop;}
 };
 
+
+
+// Concrete builders which implement builder
 
 
 // build dell product components
@@ -182,19 +183,21 @@ class HPDesktopBuilder : public desktopBuilder
    }
 };
 
-
+// Director which handle the builder , it uses th builder to build a product
 // generation of components , and build process
 class desktopDirector
 {
 
         private:
-         desktopBuilder* deskBuilder;
+         desktopBuilder* deskBuilder; // use a builder
 
          public:
+         // assign builder in constructor
              desktopDirector(desktopBuilder *deskBuilder){
                 this->deskBuilder=deskBuilder;
              }
 
+    // build the product
              Desktop* buildDesktop(){
                 deskBuilder->buildMonitor();
                 deskBuilder->buildKeyBoard();
@@ -211,13 +214,21 @@ class desktopDirector
 
 int main ()
 {
+
+    // initialize our builder type product
+
     HPDesktopBuilder*hpDesk=new HPDesktopBuilder();
 
     dellDesktopBuilder*dellDesk=new dellDesktopBuilder();
 
+    // passing them to director to build them
+
     desktopDirector* desk1=new desktopDirector(hpDesk);
 
     desktopDirector *desk2=new desktopDirector(dellDesk);
+
+
+// use director to build the product and assign it to the base product to show the final product configuration
 
      Desktop*desktop1= desk1->buildDesktop();
 

@@ -1,7 +1,7 @@
 /*
-We 'll create a factory class to handle all the if else and type issues 
-to make the client care only about choosing the type , and make myself free to add 
-without annoying the clients with my own shits 
+We 'll create a factory class to handle all the if else and type issues
+to make the client care only about choosing the type , and make myself free to add
+without annoying the clients with my own shits
 */
 #include <iostream>
 
@@ -31,9 +31,11 @@ public:
     }
 };
 
-class vehicleFactory{
+class vehicleFactory
+{
 public:
-    static Vehicle*getVehicle(string vecType){
+    static Vehicle *getVehicle(string vecType)
+    {
         Vehicle *v;
         if (vecType == "car")
         {
@@ -55,8 +57,6 @@ int main()
 
     cin >> type;
 
-            // Client use a factory to create a product 
-    Vehicle*v= vehicleFactory::getVehicle(type); // Get the benefit of static defintion
+    Vehicle *v = vehicleFactory::getVehicle(type); // Get the benefit of static defintion
     v->createVehicle();
-    
 }

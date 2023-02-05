@@ -1,30 +1,37 @@
-// observer -> notify a group of people , and update these notification to all people 
+// observer -> The Channel which 'll notify all it's users 
 
 #include<iostream>
 #include<list>
 using namespace std;
 
+
+// To combine all the subscribers in our channel 
 class ISubscriber
 {
-    public:
-            virtual void notify(string msg)=0;
+    public: 
+
+    virtual void notify(string msg)=0;
 };
 
-class user:public ISubscriber
+
+// Assign user to subscriber guy 
+class User : public ISubscriber
 {
     private:
 
-        int userId;
+    int userId;
 
-        public:
+    public:
 
-        user(int userId)
-        {
-            this->userId=userId;
-        }
-        void notify(string msg){
-            cout<<"User"<<userId<<"received message "<<msg<<endl;
-        }
+    User(int userId)
+    {
+        this->userId=userId;
+    }
+
+    void notify(string msg)
+    {
+        cout<<"User"<<userId<<"received msg "<<msg<<endl;
+    }
 };
 
 class Group
@@ -33,36 +40,47 @@ class Group
 
     public:
 
-    void subscribe(ISubscriber*user){
+    void subscribe(ISubscriber*user)
+    {
         users.push_back(user);
     }
 
-    void unSubscribe(ISubscriber*user)
-    {
-        users.remove(user);
-    }
+    void unsubscribe (ISubscriber*user)
+            {users.remove(user);}
 
-        // notify all users 
-    void notify(string msg)
-    {
-        for(auto it: users)
-        it->notify(msg);
-    }
+            void notify(string msg)
+            {
+                for (auto user:users)
+                user->notify(msg);
+            }
 };
 
 int main()
 {
-    Group*group =new Group();
+    Group* group = new Group();
 
-    user*user1= new user(1);
-     user*user2= new user(2);
-     user *user3 = new user(3);
+// create some users
+    User* user1=new User(1);
 
-     group->subscribe(user1);
-     group->subscribe(user2);
-     group->subscribe(user3);
-     group->notify("new msg");
-     group->unSubscribe(user1);
-     group->notify("new msg");
+    User*user2=new User(2);
 
+    User*user3=new User(3);
+
+    // Assign them to our channel 
+
+    group->subscribe(user1);
+    group->subscribe(user2);
+
+    group->subscribe(user3);
+
+
+// notify them all
+    group ->notify("new msg");
+
+
+// remove user 
+    group ->unsubscribe(user1);
+
+// Test notification functionality
+    group->notify("new msg");
 }

@@ -54,10 +54,10 @@ private:
                 // double checked -> as we don't need this lock all the time , we only need it in the beginning  
                         if(loggerInstance==nullptr){
                     mtx.lock(); // handling multithreading problem
-                // initstate it in the first time only , if it's not created we create it 
-                if(loggerInstance==nullptr)
-                {
-                    loggerInstance=new logger();
+                    // Check if we 've never created object we create it
+                    if (loggerInstance == nullptr)
+                    {
+                        loggerInstance = new logger();
                 }
                 mtx.unlock();}
 
